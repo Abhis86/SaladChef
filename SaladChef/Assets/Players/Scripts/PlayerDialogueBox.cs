@@ -1,0 +1,19 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerDialogueBox : MonoBehaviour
+{
+    [SerializeField] private TextMesh m_TextMesh;
+
+    public void ShowDialogBox(string message)
+    {
+        gameObject.SetActive(true);
+        m_TextMesh.text = message;
+    }
+
+    public void HideDialogBox()
+    {
+        gameObject.SetActive(false);
+    }
+}
