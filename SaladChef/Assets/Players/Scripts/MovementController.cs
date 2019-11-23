@@ -2,29 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class MovementController : MonoBehaviour
+namespace SaladChef
 {
-    public float m_Speed;
-    public string m_HorizontalMoveInputAxis = "Horizontal";
-    public string m_VerticalMoveInputAxis = "Vertical";
-
-    private Vector2 mMoveVelocity;
-    private Rigidbody2D mRigidbody2D;
-
-    void Start()
+    [System.Serializable]
+    public class MovementControlInfo
     {
-        mRigidbody2D = GetComponent<Rigidbody2D>();
+        [SerializeField] private float m_Speed = default;
+        [SerializeField] private string m_HorizontalMoveInputAxis = default;
+        [SerializeField] private string m_VerticalMoveInputAxis = default;
+
+        public float pSpeed { get => m_Speed; set => m_Speed = value; }
+        public string pHorizontalMoveInputAxis { get => m_HorizontalMoveInputAxis; }
+        public string pVerticalMoveInputAxis { get => m_VerticalMoveInputAxis; }
     }
 
-    private void Update()
+    public class MovementController : MonoBehaviour
     {
-        mMoveVelocity = new Vector2(Input.GetAxisRaw(m_HorizontalMoveInputAxis), Input.GetAxisRaw(m_VerticalMoveInputAxis)).normalized * m_Speed;
-    }
+        public MovementControlInfo info;
+        public BoxCollider2D boundary = default;
+        public Vector2 playerViewSize = default;
 
-    private void FixedUpdate()
-    {
-        var pos = mRigidbody2D.position + mMoveVelocity * Time.fixedDeltaTime;
-        mRigidbody2D.MovePosition(pos);
+        private Vector2 mMoveVelocity;
+        private Transform mTransform;
+
+        private Bounds mBounds;
+
+        public void DoSetup()
+        {
+            mTransform =transform;
+            if (boundary != null)
+                mBounds = boundary.bounds;
+        }
+
+
+        private void Update()
+        {
+            mMoveVelocity = new Vector2(Input.GetAxisRaw(info.pHorizontalMoveInputAxis), Input.GetAxisRaw(info.pVerticalMoveInputAxis)).normalized * info.pSpeed;
+            var pos = Clamp((Vector2)mTransform.position + mMoveVelocity * Time.deltaTime);
+            mTransform.position = pos;
+        }
+
+
+        private Vector2 Clamp(Vector2 point)
+        {
+            point.x = Mathf.Clamp(point.x, mBounds.min.x + playerViewSize.x, mBounds.max.x - playerViewSize.x);
+            point.y = Mathf.Clamp(point.y, mBounds.min.y + playerViewSize.y, mBounds.max.y - playerViewSize.y);
+            return point;
+        }
     }
 }

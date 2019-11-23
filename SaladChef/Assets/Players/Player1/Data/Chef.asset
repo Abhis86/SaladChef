@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9131d2adaafe94f99ff2ed54a436b2, type: 3}
+  m_Name: Chef
+  m_EditorClassIdentifier: 
+  m_UserName: Abhishek
+  m_MovementControlInfo:
+    m_Speed: 5
+    m_HorizontalMoveInputAxis: Horizontal_P1
+    m_VerticalMoveInputAxis: Vertical_P1
+  m_MovementBoundary: {fileID: 11400000, guid: 0b4cdee415967fb44bd5767c4060ee90, type: 2}
+  m_ItemsHolder: {fileID: 11400000, guid: 79db848d0786b5643bce4606a8145174, type: 2}
+  m_ActionKeyCode: 32
+  m_StartState: {fileID: 11400000, guid: d2f08947b153bd343822133398368c96, type: 2}
+  m_FSM: {fileID: 11400000, guid: 32afec3b82f966d43902d26e422c3f6c, type: 2}
+  m_CollectedVegetablesCount: {fileID: 11400000, guid: 4b42ab5c71fc4d7489a1e82f47570dad,
+    type: 2}
+  isReadyToChopVegetables: {fileID: 11400000, guid: 3b55273cf16fea548864032805250faa,
+    type: 2}
+  isReadyToCollectVegetables: {fileID: 11400000, guid: 74cf44ad88aca1745a1c8b26e4cfc4de,
+    type: 2}
+  isReadyToPickSalad: {fileID: 11400000, guid: 9981bff2644121c47a97ef76f90dc4e1, type: 2}
+  isReadyToThrowSalad: {fileID: 11400000, guid: 7c408267fb3b13249800b7f0a945efad,
+    type: 2}
+  isReadyToDeliverSalad: {fileID: 11400000, guid: 49556b42920ee7b4987053593dcf120e,
+    type: 2}
+  selectedVegetable: {fileID: 0}
+  currentState: {fileID: 11400000, guid: d2f08947b153bd343822133398368c96, type: 2}
