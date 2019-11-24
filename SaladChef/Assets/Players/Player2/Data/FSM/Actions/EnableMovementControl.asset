@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Chef: {fileID: 11400000, guid: 8e703138c59f1c34e96dd60125e8247a, type: 2}
   m_ChefTransform: {fileID: 11400000, guid: 44aefb00ae05aa44982bcb566e610fbf, type: 2}
-  m_EnableMovementControl: 0
+  m_EnableMovementControl: 1

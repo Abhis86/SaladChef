@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsVertical: 1
-  m_localScale: {x: 0.25, y: 0.25}
-  m_Spacing: -0.2
+  m_localScale: {x: 0.125, y: 0.125}
+  m_Spacing: -0.05
 --- !u!114 &515837739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,5 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c87a7eb5ae6ffc44879a806e85c822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chefStats: {fileID: 0}
   itemsHolder: {fileID: 515837741}
   chef: {fileID: 11400000, guid: 8e703138c59f1c34e96dd60125e8247a, type: 2}
