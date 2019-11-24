@@ -23,11 +23,15 @@ namespace SaladChef
 
         private IEnumerator ChopVegetables()
         {
-            while(m_Chef.GetVegetable() != null)
+            Vegetable vegetable = m_Chef.GetVegetable();
+            while (vegetable != null)
             {
+                m_Chef.pSalad.AddVegetable(vegetable);
                 m_ChefTransform.value.GetComponent<ChefView>().itemsHolder.GetChild(0).SetParent(m_Chef.pUsingChoppingBoard.GetComponent<ChoppingBoard>().itemHolder);
+                m_Chef.pUsingChoppingBoard.GetComponent<ChoppingBoard>().itemHolder.GetComponent<TransformLayout>().ForcedUpdate();
                 yield return new WaitForSeconds(m_VegetableChopTime);
                 PutChoppedItemInThePlate();
+                vegetable = m_Chef.GetVegetable();
             }
             m_Chef.MoveToNextState();
 
@@ -37,7 +41,6 @@ namespace SaladChef
         {
             ChoppingBoard board = m_Chef.pUsingChoppingBoard.GetComponent<ChoppingBoard>();
             board.itemHolder.GetChild(0).SetParent(board.plate.itemHolder);
-           // m_Chef.pUsigChoppingBoard m_ChefTransform.value.GetChild(0); SetParent */
         }
     }
 }

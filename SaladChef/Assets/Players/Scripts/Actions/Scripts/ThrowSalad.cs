@@ -9,6 +9,7 @@ namespace SaladChef
     {
         public override void DoAction()
         {
+            m_Chef.pSalad.Clear();
             m_Chef.pItemsHolder.ClearChildren();
             m_Chef.MoveToNextState();
         }

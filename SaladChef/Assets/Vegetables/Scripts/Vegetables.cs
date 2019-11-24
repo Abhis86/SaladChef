@@ -11,6 +11,8 @@ namespace SaladChef
         [SerializeField] GameObject m_Template = default;
         [SerializeField] private Vegetable[] m_Vegetables = default;
 
+        public Vegetable[] pVegetables { get => m_Vegetables;}
+
         public void Create()
         {
             for(int i =0; i < m_Vegetables.Length; ++i)

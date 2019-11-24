@@ -60,6 +60,13 @@ public class TransformLayout : MonoBehaviour
         return (size * (int)(count / 2) - (count % 2 == 0 ? size * 0.5f : 0));
     }
 
+    public void ForcedUpdate()
+    {
+        mChildCount = transform.childCount;
+        SetChildrenSize();
+        SetChildrenPosition();
+    }
+
 #if UNITY_EDITOR
     protected void OnValidate()
     {

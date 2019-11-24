@@ -25,6 +25,8 @@ namespace SaladChef
         public BoolProperty isReadyToThrowSalad = default;
         public BoolProperty isReadyToDeliverSalad = default;
         public GameObject selectedVegetable = default;
+        public float timeLeft = 120;
+        public int score = 0;
 
 
         public MovementControlInfo pMovementControlInfo { get => m_MovementControlInfo; }
@@ -36,6 +38,7 @@ namespace SaladChef
         /*[NonSerialized]*/ public State currentState;
         public Transform pUsingChoppingBoard { get; set; }
         public Transform pItemsHolder { get => m_ItemsHolder.value;}
+        public Salad pSalad = new Salad();
 
         private void OnEnable()
         {
@@ -59,7 +62,6 @@ namespace SaladChef
                 currentState = nextState;
                 currentState.Reset();
             }
-            Debug.Log(currentState);
         }
 
         private void CollectVegetable(Vegetable vegetable)

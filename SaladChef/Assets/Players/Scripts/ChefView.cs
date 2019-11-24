@@ -7,6 +7,7 @@ namespace SaladChef
     [RequireComponent(typeof(MovementController))]
     public class ChefView : MonoBehaviour
     {
+        public ChefStats chefStats;
         public Transform itemsHolder;
         public Chef chef;
         private GameObject mCurrentSelectedVegetable;
@@ -23,40 +24,13 @@ namespace SaladChef
 
         private void Update()
         {
+            chef.timeLeft -= Time.deltaTime;
+            chefStats.pTimeText = string.Format("{0:0}", chef.timeLeft);
+            chefStats.pScoreText = chef.score.ToString();
+
             chef.ResetReadyState();
             if (chef.currentState != null)
                 chef.currentState.DoUpdate(Time.deltaTime);
         }
-
-       /* private void OnTriggerEnter2D(Collider2D collision)
-        {
-            IInteractable interactable = collision.GetComponent<IInteractable>();
-            if (interactable is VegetableView)
-            {
-                chef.isReadyToCollectVegetables.value = true;
-                mCurrentSelectedVegetable = collision.gameObject;
-                chef.MoveToNextState();
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            IInteractable interactable = collision.GetComponent<IInteractable>();
-            if (interactable is VegetableView)
-            {
-                chef.isReadyToCollectVegetables.value = false;
-                mCurrentSelectedVegetable = null;
-                chef.MoveToNextState();
-            }
-        }*/
-
-       /* public void CollectVegetable()
-        {
-            GameObject vegetable = Instantiate(mCurrentSelectedVegetable, itemsHolder);
-            chef.CollectVegetable(vegetable.GetComponent<VegetableView>().vegetable);
-            vegetable.GetComponent<Collider2D>().enabled = false;
-            Debug.Log("Collected Vegetable  "+ mCurrentSelectedVegetable.name);
-
-        }*/
     }
 }
