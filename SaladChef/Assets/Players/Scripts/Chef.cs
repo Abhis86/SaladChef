@@ -25,8 +25,8 @@ namespace SaladChef
         public BoolProperty isReadyToThrowSalad = default;
         public BoolProperty isReadyToDeliverSalad = default;
         public GameObject selectedVegetable = default;
-        public float timeLeft = 120;
-        public int score = 0;
+        [NonSerialized] public float timeLeft = 120;
+        [NonSerialized] public int score = 0;
 
 
         public MovementControlInfo pMovementControlInfo { get => m_MovementControlInfo; }

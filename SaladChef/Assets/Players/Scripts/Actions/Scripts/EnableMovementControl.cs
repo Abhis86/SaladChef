@@ -7,7 +7,7 @@ namespace SaladChef
     [CreateAssetMenu(menuName = "Player/Action/EnableDisableMovemenControl")]
     public class EnableMovementControl : ChefAction
     {
-        [SerializeField] private bool m_EnableMovementControl;
+        [SerializeField] private bool m_EnableMovementControl = default;
 
         public override void DoAction()
         {

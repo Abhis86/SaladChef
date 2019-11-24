@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ChefStats : MonoBehaviour
 {
-    [SerializeField] private TextMesh m_TimeTextMesh;
-    [SerializeField] private TextMesh m_ScoreTextMesh;
+    [SerializeField] private TextMesh m_TimeTextMesh = default;
+    [SerializeField] private TextMesh m_ScoreTextMesh = default;
 
     public string pTimeText
     {
