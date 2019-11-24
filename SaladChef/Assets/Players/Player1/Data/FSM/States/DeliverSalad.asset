@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d673a507b324a4dbb4e9e456a1c546, type: 3}
   m_Name: DeliverSalad
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: 64d90f57a15edb74e8031f571babe5eb, type: 2}

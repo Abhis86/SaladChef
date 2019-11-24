@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Table : MonoBehaviour
+namespace SaladChef
 {
-    public Transform customerPlaceHolder;
-    public Transform orderPlaceHolder;
+    public class Table : MonoBehaviour
+    {
+        public Transform customerPlaceHolder;
+        public Transform orderPlaceHolder;
+        public Customer pCustomer { get; set; }
+    }
 }

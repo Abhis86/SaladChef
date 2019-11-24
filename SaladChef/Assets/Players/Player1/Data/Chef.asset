@@ -20,10 +20,11 @@ MonoBehaviour:
   m_MovementBoundary: {fileID: 11400000, guid: 0b4cdee415967fb44bd5767c4060ee90, type: 2}
   m_ItemsHolder: {fileID: 11400000, guid: 79db848d0786b5643bce4606a8145174, type: 2}
   m_ActionKeyCode: 32
-  m_StartState: {fileID: 11400000, guid: d2f08947b153bd343822133398368c96, type: 2}
+  m_StartState: {fileID: 11400000, guid: e6087ab4ebea11d4ea8c9303cc1a977c, type: 2}
   m_FSM: {fileID: 11400000, guid: 32afec3b82f966d43902d26e422c3f6c, type: 2}
   m_CollectedVegetablesCount: {fileID: 11400000, guid: 4b42ab5c71fc4d7489a1e82f47570dad,
     type: 2}
+  m_DefaultTime: 120
   isReadyToChopVegetables: {fileID: 11400000, guid: 3b55273cf16fea548864032805250faa,
     type: 2}
   isReadyToCollectVegetables: {fileID: 11400000, guid: 74cf44ad88aca1745a1c8b26e4cfc4de,
@@ -33,5 +34,6 @@ MonoBehaviour:
     type: 2}
   isReadyToDeliverSalad: {fileID: 11400000, guid: 49556b42920ee7b4987053593dcf120e,
     type: 2}
-  selectedVegetable: {fileID: 0}
-  currentState: {fileID: 11400000, guid: d2f08947b153bd343822133398368c96, type: 2}
+  isDeliveredCorrectSaladCombination: {fileID: 11400000, guid: a0a7e30effda7074cb2e010802ad3317,
+    type: 2}
+  currentState: {fileID: 11400000, guid: e6087ab4ebea11d4ea8c9303cc1a977c, type: 2}

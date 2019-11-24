@@ -137,3 +137,27 @@ MonoBehaviour:
     m_ToStates:
     - m_State: {fileID: 11400000, guid: 49f7fff3984375f40be5c8dd32ff676b, type: 2}
       m_Conditions: []
+  - fromState: {fileID: 11400000, guid: 1bd34708513db1e4e8ef135b68f43131, type: 2}
+    m_ToStates:
+    - m_State: {fileID: 11400000, guid: 49f7fff3984375f40be5c8dd32ff676b, type: 2}
+      m_Conditions: []
+  - fromState: {fileID: 11400000, guid: b9e61f58250174d4299bf166d1584062, type: 2}
+    m_ToStates:
+    - m_State: {fileID: 11400000, guid: 1bd34708513db1e4e8ef135b68f43131, type: 2}
+      m_Conditions:
+      - m_Type: 0
+        m_BoolProperty: {fileID: 11400000, guid: 6b2c17540d0c184439cb84e898b87d73,
+          type: 2}
+        m_Is: 1
+        m_IntProperty: {fileID: 0}
+        m_Operator: 0
+        m_IntToCompare: 0
+    - m_State: {fileID: 11400000, guid: 49f7fff3984375f40be5c8dd32ff676b, type: 2}
+      m_Conditions:
+      - m_Type: 0
+        m_BoolProperty: {fileID: 11400000, guid: 6b2c17540d0c184439cb84e898b87d73,
+          type: 2}
+        m_Is: 0
+        m_IntProperty: {fileID: 0}
+        m_Operator: 0
+        m_IntToCompare: 0

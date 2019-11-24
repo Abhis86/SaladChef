@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Chef: {fileID: 11400000, guid: 8e99eaa08dc535d4b811de1305ad8b7e, type: 2}
   m_ChefTransform: {fileID: 11400000, guid: 41af1889c4830d54b807c71512cad6d9, type: 2}
-  m_ActionEvent: {fileID: 0}
-  m_VegetableChopTime: 3
+  m_VegetableChopTime: 1

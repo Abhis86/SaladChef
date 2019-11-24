@@ -24,9 +24,9 @@ namespace SaladChef
 
         private void Update()
         {
-            chef.timeLeft -= Time.deltaTime;
-            chefStats.pTimeText = string.Format("{0:0}", chef.timeLeft);
-            chefStats.pScoreText = chef.score.ToString();
+            chef.pTimeLeft -= Time.deltaTime;
+            chefStats.pTimeText = string.Format("{0:0}", chef.pTimeLeft);
+            chefStats.pScoreText = chef.pScore.ToString();
 
             chef.ResetReadyState();
             if (chef.currentState != null)

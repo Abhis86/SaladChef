@@ -18,31 +18,37 @@ namespace SaladChef
         [SerializeField] private State m_StartState = default;
         [SerializeField] private FSM m_FSM = default;
         [SerializeField] private IntProperty m_CollectedVegetablesCount = default;
+        [SerializeField] private float m_DefaultTime = 120;
 
         public BoolProperty isReadyToChopVegetables = default;
         public BoolProperty isReadyToCollectVegetables = default;
         public BoolProperty isReadyToPickSalad = default;
         public BoolProperty isReadyToThrowSalad = default;
         public BoolProperty isReadyToDeliverSalad = default;
-        public GameObject selectedVegetable = default;
-        [NonSerialized] public float timeLeft = 120;
-        [NonSerialized] public int score = 0;
-
+        public BoolProperty isDeliveredCorrectSaladCombination = default;
 
         public MovementControlInfo pMovementControlInfo { get => m_MovementControlInfo; }
         public string pName { get => m_UserName; }
         public TransformProperty pBoundary { get => m_MovementBoundary; }
-        public KeyCode pActionKeyCode { get => m_ActionKeyCode;}
+        public KeyCode pActionKeyCode { get => m_ActionKeyCode; }
 
+        [NonSerialized] public GameObject selectedVegetable = default;
         [NonSerialized] protected Stack<Vegetable> mPickedVegetables = new Stack<Vegetable>();
-        /*[NonSerialized]*/ public State currentState;
+        /*[NonSerialized]*/
+        public State currentState;
         public Transform pUsingChoppingBoard { get; set; }
-        public Transform pItemsHolder { get => m_ItemsHolder.value;}
-        public Salad pSalad = new Salad();
+        public Transform pItemsHolder { get => m_ItemsHolder.value; }
+        public GameObject pSelectedCustomeToDeliverSalad { get; set; }
+        public float pTimeLeft { get; set; }
+        public int pScore { get; set; }
+
+        [NonSerialized] public Salad pSalad = new Salad();
 
         private void OnEnable()
         {
             currentState = m_StartState;
+            pTimeLeft = m_DefaultTime;
+            pScore = 0;
         }
 
         public void ResetReadyState()

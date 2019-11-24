@@ -13,10 +13,12 @@ namespace SaladChef
         [SerializeField] private int m_ScoreForDelivery = 10;
 
         public Table pReservedTable { get; set; }
+        public Chef pOrderedTakenByChef { get; set; }
 
         private float mWaitTime = 0;
         private float mTimeElapsed = 0;
-        private bool mIsSaladOrdered = false;
+        private bool mIsSaladOrdereSelected = false;
+        private bool mIsAngry;
         private Salad mSalad = new Salad();
 
         private void Start()
@@ -38,32 +40,42 @@ namespace SaladChef
                 obj.GetComponent<Collider2D>().enabled = false;
             }
 
+            pReservedTable.pCustomer = this;
             mWaitTime = m_WaitTimePerVegetable * noOfVegetablesInSalad;
             m_WaitTimeMeter.pProgress = (mWaitTime - mTimeElapsed) / mWaitTime;
-            mIsSaladOrdered = true;
+            pReservedTable.orderPlaceHolder.GetComponent<TransformLayout>().ForcedUpdate();
+            mIsSaladOrdereSelected = true;
         }
 
-        public void ReceiveSalad(Chef chef, Salad salad)
+        public bool ReceiveSalad(Chef chef, Salad salad)
         {
-            if (mSalad.Equals(salad))
+            bool isCorrectSaladCombination = mSalad.Equals(salad);
+            if (isCorrectSaladCombination)
             {
                 if (mTimeElapsed / mWaitTime * 100 < 70)
                     SpawnPowerup();
+                chef.pScore += m_ScoreForDelivery;
+                LeaveTable();
             }
             else
-                chef.score -= m_ScoreForDelivery * 2;
+            {
+                if (mIsAngry)
+                    chef.pScore -= m_ScoreForDelivery * 2;
+                mIsAngry = true;
+            }
+            return isCorrectSaladCombination;
         }
 
         private void SpawnPowerup()
         {
-
+            // Spawn powerups
         }
 
         public void Update()
         {
-            if (mIsSaladOrdered)
+            if (mIsSaladOrdereSelected)
             {
-                mTimeElapsed += Time.deltaTime;
+                mTimeElapsed += mIsAngry ? Time.deltaTime * 2 : Time.deltaTime;
                 m_WaitTimeMeter.pProgress = (mWaitTime - mTimeElapsed) / mWaitTime;
 
                 if (mTimeElapsed >= mWaitTime)
@@ -87,10 +99,13 @@ namespace SaladChef
         private void Reset()
         {
             pReservedTable.orderPlaceHolder.ClearChildren();
+            pReservedTable.pCustomer = null;
+            pOrderedTakenByChef = null;
             mTimeElapsed = 0;
             mWaitTime = 0;
-            mIsSaladOrdered = false;
+            mIsSaladOrdereSelected = false;
             mSalad.Clear();
+            mIsAngry = false;
         }
 
         private int[] GetRandomNumberdArray(int length)
