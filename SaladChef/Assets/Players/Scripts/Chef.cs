@@ -93,5 +93,14 @@ namespace SaladChef
             CollectVegetable(vegetable.GetComponent<VegetableView>().vegetable);
             vegetable.GetComponent<Collider2D>().enabled = false;
         }
+
+        public void Reset()
+        {
+            currentState = m_StartState;
+            pTimeLeft = m_DefaultTime;
+            pScore = 0;
+            m_ItemsHolder.Clear();
+            ResetReadyState();
+        }
     }
 }

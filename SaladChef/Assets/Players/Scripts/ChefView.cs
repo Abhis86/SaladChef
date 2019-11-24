@@ -10,7 +10,6 @@ namespace SaladChef
         public ChefStats chefStats;
         public Transform itemsHolder;
         public Chef chef;
-        private GameObject mCurrentSelectedVegetable;
 
         private void Start()
         {
@@ -31,6 +30,17 @@ namespace SaladChef
             chef.ResetReadyState();
             if (chef.currentState != null)
                 chef.currentState.DoUpdate(Time.deltaTime);
+        }
+
+        public void Pause(bool pause)
+        {
+            enabled = !pause;
+            GetComponent<MovementController>().enabled = !pause;
+        }
+
+        public void Reset()
+        {
+            itemsHolder.ClearChildren();
         }
     }
 }

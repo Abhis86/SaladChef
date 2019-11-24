@@ -1,10 +1,11 @@
-﻿//using System;
+﻿using System;
 using UnityEngine;
 
 namespace SaladChef
 {
     public class Customer : MonoBehaviour
     {
+        public Action<Customer> OnNotRecievedOrder;
         [SerializeField] private ProgressBar m_WaitTimeMeter = default;
         [SerializeField] private Vegetables m_AvailableVegetables = default;
         [SerializeField] private int m_MinVegetablesSalad = 2;
@@ -24,6 +25,11 @@ namespace SaladChef
         private void Start()
         {
             RequestSalad();
+        }
+
+        public void RegisterEvent(Action<Customer> notRecievedOrderCallback)
+        {
+            OnNotRecievedOrder = notRecievedOrderCallback;
         }
 
         private void RequestSalad()
@@ -81,6 +87,7 @@ namespace SaladChef
                 if (mTimeElapsed >= mWaitTime)
                 {
                     LeaveTable();
+                    OnNotRecievedOrder?.Invoke(this);
                 }
             }
         }
@@ -117,7 +124,7 @@ namespace SaladChef
          
             for (int i = length - 1; i > 0; i--)
             {
-                int j = Random.Range(0, i + 1);
+                int j = UnityEngine.Random.Range(0, i + 1);
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;

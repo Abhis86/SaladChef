@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9131d2adaafe94f99ff2ed54a436b2, type: 3}
   m_Name: Chef
   m_EditorClassIdentifier: 
-  m_UserName: Abhishek
+  m_UserName: Chef_1
   m_MovementControlInfo:
     m_Speed: 5
     m_HorizontalMoveInputAxis: Horizontal_P1
@@ -36,4 +36,4 @@ MonoBehaviour:
     type: 2}
   isDeliveredCorrectSaladCombination: {fileID: 11400000, guid: a0a7e30effda7074cb2e010802ad3317,
     type: 2}
-  currentState: {fileID: 11400000, guid: e6087ab4ebea11d4ea8c9303cc1a977c, type: 2}
+  currentState: {fileID: 11400000, guid: 1d69d8f2af4bada41b469f984958f988, type: 2}

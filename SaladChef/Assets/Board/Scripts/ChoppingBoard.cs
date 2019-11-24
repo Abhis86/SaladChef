@@ -9,5 +9,13 @@ namespace SaladChef
         public Plate plate;
         public Transform itemHolder;
         public bool pIsInUse { get; set; }
+
+        public void Reset()
+        {
+            plate.itemHolder.ClearChildren();
+            plate.pIsInUse = false;
+            itemHolder.ClearChildren();
+            pIsInUse = false;
+        }
     }
 }
