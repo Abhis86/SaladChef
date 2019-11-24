@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef73ad684c969f48866cdb4748c968c, type: 3}
   m_Name: Mushroom
   m_EditorClassIdentifier: 
-  m_Name: Mushroom
-  m_Sprite: {fileID: 21300000, guid: c6acfcc4754c88d48ac77547734d28f4, type: 3}
+  m_Name: Cabbage
+  m_Sprite: {fileID: 21300000, guid: 65b9f47798ef6094d9cd1eedc7dd3c1c, type: 3}
   m_Container: {fileID: 11400000, guid: 72e843e627ad39e4784d0076a38e760b, type: 2}

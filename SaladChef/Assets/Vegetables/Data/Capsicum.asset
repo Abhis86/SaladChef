@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef73ad684c969f48866cdb4748c968c, type: 3}
   m_Name: Capsicum
   m_EditorClassIdentifier: 
-  m_Name: Capsicum
-  m_Sprite: {fileID: 21300000, guid: d24f0ffd238a64945a480e9660596a1f, type: 3}
+  m_Name: SaladLeaf
+  m_Sprite: {fileID: 21300000, guid: 75024bf5159496f4086fd87bd8bf0078, type: 3}
   m_Container: {fileID: 11400000, guid: 4219a450c6fc06c4798c3b7866215014, type: 2}
