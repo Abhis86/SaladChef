@@ -9,6 +9,8 @@ namespace SaladChef
     public class UIGameOver : UIBehaviour
     {
         [SerializeField] private Text m_GameResult = default;
+        [SerializeField] private ScoreManager m_ScoreSaveManager;
+        [SerializeField] private UIHighScore m_UIHighScore;
 
         public void ShowResult(Chef chef1, Chef chef2)
         {
@@ -19,6 +21,12 @@ namespace SaladChef
                 m_GameResult.text = chef2.pName + " Won!";
             else
                 m_GameResult.text = "Match Tie!";
+
+            m_ScoreSaveManager.SetScore(chef1.pName, chef1.pScore);
+            m_ScoreSaveManager.SetScore(chef2.pName, chef2.pScore);
+            m_ScoreSaveManager.Save();
+
+            m_UIHighScore.Show(m_ScoreSaveManager.chefsScoreData);
         }
     }
 }

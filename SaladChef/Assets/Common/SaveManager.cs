@@ -13,8 +13,9 @@ class GameData
         saveData = new Dictionary<string, object>();
     }
 }
-public class SaveManager : MonoBehaviour
+public class SaveManager
 {
+    const string fileName = "/saladChefGame.data";
     private static SaveManager  mInstance;
     private GameData gameData = new GameData();
 
@@ -49,9 +50,7 @@ public class SaveManager : MonoBehaviour
     public static bool HasKey<T>(string key)
     {
         if (pInstance.gameData.saveData.ContainsKey(key))
-        {
             return true;
-        }
 
         return false;
     }
@@ -68,34 +67,36 @@ public class SaveManager : MonoBehaviour
   
     public static void CreateData()
     {
-        FileStream file = File.Create(Application.persistentDataPath + "/saladChef.data");
-        try
+        using (FileStream file = File.Create(Application.persistentDataPath + fileName))
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(file, pInstance.gameData);
-        }
-        catch (System.Exception e)
-        {
-            throw;
-        }
-        finally
-        {
-            if (file != null)
-                file.Close();
+            try
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(file, pInstance.gameData);
+            }
+            catch (System.Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                if (file != null)
+                    file.Close();
+            }
         }
     }
 
    
     private void LoadDataFromFile()
     {
-        if (File.Exists(Application.persistentDataPath + "/saveManager.data"))
+        if (File.Exists(Application.persistentDataPath + fileName))
         {
             FileStream file = null;
 
             try
             {
                 BinaryFormatter bf = new BinaryFormatter();
-                file = File.Open(Application.persistentDataPath + "/saveManager.data", FileMode.Open);
+                file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
                 gameData = (GameData)bf.Deserialize(file);
 
             }
