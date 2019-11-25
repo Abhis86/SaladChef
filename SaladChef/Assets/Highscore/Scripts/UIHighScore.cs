@@ -9,7 +9,7 @@ namespace SaladChef
 {
     public class UIHighScore : UIBehaviour
     {
-        [SerializeField] private UIScoreItem m_Template;
+        [SerializeField] private UIScoreItem m_Template = default;
         [SerializeField] private Text[] m_ChefName = default;
         [SerializeField] private RectTransform[] m_Contents = default;
 

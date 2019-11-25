@@ -9,8 +9,8 @@ namespace SaladChef
     public class UIGameOver : UIBehaviour
     {
         [SerializeField] private Text m_GameResult = default;
-        [SerializeField] private ScoreManager m_ScoreSaveManager;
-        [SerializeField] private UIHighScore m_UIHighScore;
+        [SerializeField] private ScoreManager m_ScoreSaveManager = default;
+        [SerializeField] private UIHighScore m_UIHighScore = default;
 
         public void ShowResult(Chef chef1, Chef chef2)
         {

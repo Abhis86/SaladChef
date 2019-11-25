@@ -76,6 +76,7 @@ public class SaveManager
             }
             catch (System.Exception e)
             {
+                Debug.LogError(e.Message);
                 throw;
             }
             finally
@@ -102,6 +103,7 @@ public class SaveManager
             }
             catch (System.Exception e)
             {
+                Debug.LogError(e.Message);
                 throw;
             }
             finally

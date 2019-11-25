@@ -17,7 +17,7 @@ namespace SaladChef
     {
         public Dictionary<string, PlayerScoreData> chefsScoreData = new Dictionary<string, PlayerScoreData>();
 
-        [SerializeField] private Chef[] m_Chefs;
+        [SerializeField] private Chef[] m_Chefs = default;
 
         private void Start()
         {
