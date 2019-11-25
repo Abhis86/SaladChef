@@ -20,7 +20,10 @@ namespace SaladChef
         public void PickSaladPlate(Chef chef)
         {
             Plate plateObject = chef.pUsingChoppingBoard.GetComponent<ChoppingBoard>().plate;
+            Salad saladInPlate = plateObject.GetComponent<Plate>().pSalad;
             GameObject dummyPlate = Instantiate(chef.pUsingChoppingBoard.GetComponent<ChoppingBoard>().plate.gameObject, chef.pItemsHolder);
+            chef.pSaladPickedToDeliver = saladInPlate.Copy();
+            saladInPlate.Clear();
             plateObject.itemHolder.transform.ClearChildren();
             dummyPlate.GetComponent<Collider2D>().enabled = false;
         }

@@ -10,7 +10,7 @@ namespace SaladChef
     {
         public override void DoAction(Actor actor)
         {
-            ((ChefActor)actor).chef.pSalad.Clear();
+            ((ChefActor)actor).chef.pSaladPickedToDeliver.Clear();
             ((ChefActor)actor).chef.pItemsHolder.ClearChildren();
             ((ChefActor)actor).chef.MoveToNextState();
         }

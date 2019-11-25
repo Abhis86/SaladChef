@@ -26,20 +26,20 @@ namespace SaladChef
             Vegetable vegetable = chef.GetVegetable();
             while (vegetable != null)
             {
-                chef.pSalad.AddVegetable(vegetable);
                 chefTransform.GetComponent<ChefView>().itemsHolder.GetChild(0).SetParent(chef.pUsingChoppingBoard.GetComponent<ChoppingBoard>().itemHolder);
                 chef.pUsingChoppingBoard.GetComponent<ChoppingBoard>().itemHolder.GetComponent<TransformLayout>().ForcedUpdate();
                 yield return new WaitForSeconds(m_VegetableChopTime);
-                PutChoppedItemInThePlate(chef);
+                PutChoppedItemInThePlate(chef, vegetable);
                 vegetable = chef.GetVegetable();
             }
             chef.MoveToNextState();
 
         }
 
-        private void PutChoppedItemInThePlate(Chef chef)
+        private void PutChoppedItemInThePlate(Chef chef, Vegetable vegetable)
         {
             ChoppingBoard board = chef.pUsingChoppingBoard.GetComponent<ChoppingBoard>();
+            board.plate.pSalad.AddVegetable(vegetable);
             board.itemHolder.GetChild(0).SetParent(board.plate.itemHolder);
         }
     }

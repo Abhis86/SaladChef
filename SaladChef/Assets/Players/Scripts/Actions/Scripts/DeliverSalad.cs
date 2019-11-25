@@ -11,9 +11,9 @@ namespace SaladChef
         public override void DoAction(Actor actor)
         {
             Chef chef = ((ChefActor)actor).chef;
-            chef.isDeliveredCorrectSaladCombination.value = chef.pSelectedCustomeToDeliverSalad.GetComponent<Customer>().ReceiveSalad(chef, chef.pSalad);
+            chef.isDeliveredCorrectSaladCombination.value = chef.pSelectedCustomeToDeliverSalad.GetComponent<Customer>().ReceiveSalad(chef, chef.pSaladPickedToDeliver);
             chef.pItemsHolder.ClearChildren();
-            chef.pSalad.Clear();
+            chef.pSaladPickedToDeliver.Clear();
             chef.MoveToNextState();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace SaladChef
@@ -16,6 +17,15 @@ namespace SaladChef
         public void Clear()
         {
             mSalad.Clear();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder str = new StringBuilder();
+            foreach (Vegetable vegetable in mSalad)
+                str.Append(vegetable.name + "    ");
+
+            return str.ToString();
         }
 
         public override bool Equals(object obj)
@@ -38,6 +48,14 @@ namespace SaladChef
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public Salad Copy()
+        {
+            Salad salad = new Salad();
+            foreach (Vegetable vegetable in mSalad)
+                salad.AddVegetable(vegetable);
+            return salad;
         }
     }
 }

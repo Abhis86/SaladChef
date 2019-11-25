@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plate : MonoBehaviour
+namespace SaladChef
 {
-    public Transform itemHolder;
-    public bool pIsInUse { get; set; }
+    public class Plate : MonoBehaviour
+    {
+        public Transform itemHolder;
+        public bool pIsInUse { get; set; }
+        public Salad pSalad { get; set; } = new Salad();
+    }
 }

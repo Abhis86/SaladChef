@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsVertical: 0
-  m_localScale: {x: 0.35, y: 0.35}
-  m_Spacing: -0.2
+  m_localScale: {x: 0.25, y: 0.25}
+  m_Spacing: 0.05
 --- !u!1 &31509126
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsVertical: 0
-  m_localScale: {x: 0.35, y: 0.35}
-  m_Spacing: -0.2
+  m_localScale: {x: 0.25, y: 0.25}
+  m_Spacing: 0.05
 --- !u!1 &61626025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,8 +2354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsVertical: 0
-  m_localScale: {x: 0.35, y: 0.35}
-  m_Spacing: -0.2
+  m_localScale: {x: 0.25, y: 0.25}
+  m_Spacing: 0.05
 --- !u!1 &825588629
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,8 +4859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsVertical: 0
-  m_localScale: {x: 0.35, y: 0.35}
-  m_Spacing: -0.2
+  m_localScale: {x: 0.25, y: 0.25}
+  m_Spacing: 0.05
 --- !u!1 &2019721210
 GameObject:
   m_ObjectHideFlags: 0

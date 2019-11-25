@@ -42,7 +42,7 @@ namespace SaladChef
         public float pTimeLeft { get; set; }
         public int pScore { get; set; }
 
-        [NonSerialized] public Salad pSalad = new Salad();
+        [NonSerialized] public Salad pSaladPickedToDeliver = new Salad();
 
         private void OnEnable()
         {
