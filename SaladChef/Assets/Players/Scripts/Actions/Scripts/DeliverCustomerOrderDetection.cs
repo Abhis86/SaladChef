@@ -1,33 +1,34 @@
-﻿using System.Collections;
+﻿using Framework.FSM;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SaladChef
 {
     [CreateAssetMenu(menuName = "Player/Action/DeliverCustomerOrderDetection")]
-    public class DeliverCustomerOrderDetection : ChefAction
+    public class DeliverCustomerOrderDetection : GameAction
     {
-        public override void DoAction()
+        public override void DoAction(Actor actor)
         {
         }
 
-        public override void DoActionUpdate(float deltaTime)
+        public override void DoActionUpdate(Actor actor, float deltaTime)
         {
-            if (Input.GetKeyDown(m_Chef.pActionKeyCode))
+            if (Input.GetKeyDown(((ChefActor)actor).chef.pActionKeyCode))
             {
-                Customer customer = GetCustomerWaitingForOrder();
+                Customer customer = GetCustomerWaitingForOrder(((ChefActor)actor).chefTransform.value);
                 if (customer != null)
                 {
-                    m_Chef.isReadyToDeliverSalad.value = true;
-                    m_Chef.pSelectedCustomeToDeliverSalad = customer.gameObject;
-                    m_Chef.MoveToNextState();
+                    ((ChefActor)actor).chef.isReadyToDeliverSalad.value = true;
+                    ((ChefActor)actor).chef.pSelectedCustomeToDeliverSalad = customer.gameObject;
+                    ((ChefActor)actor).chef.MoveToNextState();
                 }
             }
         }
 
-        private Customer GetCustomerWaitingForOrder()
+        private Customer GetCustomerWaitingForOrder(Transform chef)
         {
-            RaycastHit2D hit = Physics2D.Raycast(m_ChefTransform.value.position, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(chef.position, Vector2.zero);
             Table table = null;
             if (hit.collider != null)
                 table = hit.collider.GetComponent<Table>();

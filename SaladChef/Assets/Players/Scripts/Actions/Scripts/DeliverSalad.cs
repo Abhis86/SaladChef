@@ -1,21 +1,23 @@
-﻿using System.Collections;
+﻿using Framework.FSM;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SaladChef
 {
     [CreateAssetMenu(menuName = "Player/Action/DeliverSalad")]
-    public class DeliverSalad : ChefAction
+    public class DeliverSalad : GameAction
     {
-        public override void DoAction()
+        public override void DoAction(Actor actor)
         {
-            m_Chef.isDeliveredCorrectSaladCombination.value = m_Chef.pSelectedCustomeToDeliverSalad.GetComponent<Customer>().ReceiveSalad(m_Chef, m_Chef.pSalad);
-            m_Chef.pItemsHolder.ClearChildren();
-            m_Chef.pSalad.Clear();
-            m_Chef.MoveToNextState();
+            Chef chef = ((ChefActor)actor).chef;
+            chef.isDeliveredCorrectSaladCombination.value = chef.pSelectedCustomeToDeliverSalad.GetComponent<Customer>().ReceiveSalad(chef, chef.pSalad);
+            chef.pItemsHolder.ClearChildren();
+            chef.pSalad.Clear();
+            chef.MoveToNextState();
         }
 
-        public override void DoActionUpdate(float deltaTime)
+        public override void DoActionUpdate(Actor actor,float deltaTime)
         {
         }
     }

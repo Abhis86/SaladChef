@@ -5,29 +5,31 @@ using UnityEngine;
 namespace SaladChef
 {
     [CreateAssetMenu(menuName = "Player/Action/ChoppingBoardDetection")]
-    public class ChoppingBoardDetection : ChefAction
+    public class ChoppingBoardDetection : GameAction
     {
-        public override void DoAction()
+        public override void DoAction(Actor actor)
         {
         }
 
-        public override void DoActionUpdate(float deltaTime)
+        public override void DoActionUpdate(Actor actor,float deltaTime)
         {
-            if (Input.GetKeyDown(m_Chef.pActionKeyCode))
+            if (Input.GetKeyDown(((ChefActor)actor).chef.pActionKeyCode))
             {
-                ChoppingBoard board = GetFreeChoppingBoard();
+                ChoppingBoard board = GetFreeChoppingBoard(((ChefActor)actor).chefTransform.value);
+
                 if (board)
                 {
-                    m_Chef.isReadyToChopVegetables.value = true;
-                    m_Chef.pUsingChoppingBoard = board.transform;
-                    m_Chef.MoveToNextState();
+
+                    ((ChefActor)actor).chef.isReadyToChopVegetables.value = true;
+                    ((ChefActor)actor).chef.pUsingChoppingBoard = board.transform;
+                    ((ChefActor)actor).chef.MoveToNextState();
                 }
             }
         }
 
-        private ChoppingBoard GetFreeChoppingBoard()
+        private ChoppingBoard GetFreeChoppingBoard(Transform chef)
         {
-            RaycastHit2D hit = Physics2D.Raycast(m_ChefTransform.value.position, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(chef.position, Vector2.zero);
             ChoppingBoard board = null;
             if (hit.collider != null)
             {

@@ -20,7 +20,7 @@ MonoBehaviour:
   m_MovementBoundary: {fileID: 11400000, guid: 0b4cdee415967fb44bd5767c4060ee90, type: 2}
   m_ItemsHolder: {fileID: 11400000, guid: 79db848d0786b5643bce4606a8145174, type: 2}
   m_ActionKeyCode: 32
-  m_StartState: {fileID: 11400000, guid: e6087ab4ebea11d4ea8c9303cc1a977c, type: 2}
+  m_StartState: {fileID: 11400000, guid: d2f08947b153bd343822133398368c96, type: 2}
   m_FSM: {fileID: 11400000, guid: 32afec3b82f966d43902d26e422c3f6c, type: 2}
   m_CollectedVegetablesCount: {fileID: 11400000, guid: 4b42ab5c71fc4d7489a1e82f47570dad,
     type: 2}
@@ -36,4 +36,4 @@ MonoBehaviour:
     type: 2}
   isDeliveredCorrectSaladCombination: {fileID: 11400000, guid: a0a7e30effda7074cb2e010802ad3317,
     type: 2}
-  currentState: {fileID: 11400000, guid: 1d69d8f2af4bada41b469f984958f988, type: 2}
+  currentState: {fileID: 11400000, guid: cca863075b4dfc344ac869f282abbef8, type: 2}

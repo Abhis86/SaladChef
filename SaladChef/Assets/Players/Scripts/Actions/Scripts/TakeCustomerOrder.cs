@@ -1,32 +1,33 @@
-﻿using System.Collections;
+﻿using Framework.FSM;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SaladChef
 {
     [CreateAssetMenu(menuName = "Player/Action/TakeCustomerOrder")]
-    public class TakeCustomerOrder : ChefAction
+    public class TakeCustomerOrder : GameAction
     {
-        public override void DoAction()
+        public override void DoAction(Actor actor)
         {
         }
 
-        public override void DoActionUpdate(float deltaTime)
+        public override void DoActionUpdate(Actor actor, float deltaTime)
         {
-            if (Input.GetKeyDown(m_Chef.pActionKeyCode))
+            if (Input.GetKeyDown(((ChefActor)actor).chef.pActionKeyCode))
             {
-                Customer customer = GetCustomerWaitingToOrder();
+                Customer customer = GetCustomerWaitingToOrder(((ChefActor)actor).chefTransform.value);
                 if (customer != null)
                 {
-                    customer.pOrderedTakenByChef = m_Chef;
-                    m_Chef.MoveToNextState();
+                    customer.pOrderedTakenByChef = ((ChefActor)actor).chef;
+                    ((ChefActor)actor).chef.MoveToNextState();
                 }
             }
         }
 
-        private Customer GetCustomerWaitingToOrder()
+        private Customer GetCustomerWaitingToOrder(Transform chef)
         {
-            RaycastHit2D hit = Physics2D.Raycast(m_ChefTransform.value.position, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(chef.position, Vector2.zero);
             Table table = null;
             if (hit.collider != null)
                 table = hit.collider.GetComponent<Table>();

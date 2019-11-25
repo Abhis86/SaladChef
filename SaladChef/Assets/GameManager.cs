@@ -40,7 +40,7 @@ namespace SaladChef
                 mGameOver = true;
                 for (int i = 0; i < m_Chefs.Length; ++i)
                 {
-                    if (m_Chefs[i].chef.pTimeLeft > 0)
+                    if (m_Chefs[i].pChef.pTimeLeft > 0)
                     {
                         mGameOver = false;
                         break;
@@ -52,7 +52,7 @@ namespace SaladChef
                     for (int i = 0; i < m_Chefs.Length; ++i)
                         m_Chefs[i].Pause(true);
                     m_CustomerSpawner.Pause(true);
-                    m_UIGameOver.ShowResult(m_Chefs[0].chef, m_Chefs[1].chef);
+                    m_UIGameOver.ShowResult(m_Chefs[0].pChef, m_Chefs[1].pChef);
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace SaladChef
         private void OnCustomerDidNoRecievOrded(Customer customer)
         {
             for (int i = 0; i < m_Chefs.Length; ++i)
-                m_Chefs[i].chef.pScore -= m_ReduceScoreOnNotDeliveringTheSalad;
+                m_Chefs[i].pChef.pScore -= m_ReduceScoreOnNotDeliveringTheSalad;
         }
 
         public void RestartGame()
@@ -68,7 +68,7 @@ namespace SaladChef
             for (int i = 0; i < m_Chefs.Length; ++i)
             {
                 m_Chefs[i].Reset();
-                m_Chefs[i].chef.Reset();
+                m_Chefs[i].pChef.Reset();
             }
             for (int i = 0; i < m_ChoppingBoard.Length; ++i)
                 m_ChoppingBoard[i].Reset();

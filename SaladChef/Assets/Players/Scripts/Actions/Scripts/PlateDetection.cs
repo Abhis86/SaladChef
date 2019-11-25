@@ -1,30 +1,31 @@
-﻿using UnityEngine;
+﻿using Framework.FSM;
+using UnityEngine;
 
 namespace SaladChef
 {
     [CreateAssetMenu(menuName = "Player/Action/PlateDetection")]
-    public class PlateDetection : ChefAction
+    public class PlateDetection : GameAction
     {
-        public override void DoAction()
+        public override void DoAction(Actor actor)
         {
            
         }
 
-        public override void DoActionUpdate(float deltaTime)
+        public override void DoActionUpdate(Actor actor,float deltaTime)
         {
-            if (Input.GetKeyDown(m_Chef.pActionKeyCode))
+            if (Input.GetKeyDown(((ChefActor)actor).chef.pActionKeyCode))
             {
-                if (GetFreePlate() != null)
+                if (GetFreePlate(((ChefActor)actor).chefTransform.value) != null)
                 {
-                    m_Chef.isReadyToPickSalad.value = true;
-                    m_Chef.MoveToNextState();
+                    ((ChefActor)actor).chef.isReadyToPickSalad.value = true;
+                    ((ChefActor)actor).chef.MoveToNextState();
                 }
             }
         }
 
-        private Plate GetFreePlate()
+        private Plate GetFreePlate(Transform chef)
         {
-            RaycastHit2D hit = Physics2D.Raycast(m_ChefTransform.value.position, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(chef.position, Vector2.zero);
             Plate plate = null;
             if (hit.collider != null)
             {

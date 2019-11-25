@@ -1,19 +1,20 @@
-﻿using System.Collections;
+﻿using Framework.FSM;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SaladChef
 {
     [CreateAssetMenu(menuName = "Player/Action/CollectVegetables")]
-    public class CollectVegetables : ChefAction
+    public class CollectVegetables : GameAction
     {
-        public override void DoAction()
+        public override void DoAction(Actor actor)
         {
-            m_Chef.CollectVegetable();
-            m_Chef.MoveToNextState();
+            ((ChefActor)actor).chef.CollectVegetable();
+            ((ChefActor)actor).chef.MoveToNextState();
         }
 
-        public override void DoActionUpdate(float deltaTime)
+        public override void DoActionUpdate(Actor actor, float deltaTime)
         {
         }                     
     }

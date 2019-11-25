@@ -10,13 +10,13 @@ namespace Framework.FSM
         public GameAction[] actions;
         [System.NonSerialized] protected bool mIsInitialized;
 
-        public void DoUpdate(float deltaTime)
+        public void DoUpdate(Actor actor, float deltaTime)
         {
             for (int i = 0; i < actions.Length; ++i)
             {
                 if (!mIsInitialized)
-                    actions[i].DoAction();
-                actions[i].DoActionUpdate(deltaTime);
+                    actions[i].DoAction(actor);
+                actions[i].DoActionUpdate(actor, deltaTime);
             }
 
             mIsInitialized = true;

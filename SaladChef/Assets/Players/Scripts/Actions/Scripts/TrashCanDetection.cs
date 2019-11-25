@@ -1,30 +1,31 @@
-﻿using UnityEngine;
+﻿using Framework.FSM;
+using UnityEngine;
 
 namespace SaladChef
 {
     [CreateAssetMenu(menuName = "Player/Action/TrashCanDetection")]
-    public class TrashCanDetection : ChefAction
+    public class TrashCanDetection : GameAction
     {
-        public override void DoAction()
+        public override void DoAction(Actor actor)
         {
            
         }
 
-        public override void DoActionUpdate(float deltaTime)
+        public override void DoActionUpdate(Actor actor,float deltaTime)
         {
-            if (Input.GetKeyDown(m_Chef.pActionKeyCode))
+            if (Input.GetKeyDown(((ChefActor)actor).chef.pActionKeyCode))
             {
-                if (GetFreeTrashCan() != null)
+                if (GetFreeTrashCan(((ChefActor)actor).chefTransform.value) != null)
                 {
-                    m_Chef.isReadyToThrowSalad.value = true;
-                    m_Chef.MoveToNextState();
+                    ((ChefActor)actor).chef.isReadyToThrowSalad.value = true;
+                    ((ChefActor)actor).chef.MoveToNextState();
                 }
             }
         }
 
-        private TrashCan GetFreeTrashCan()
+        private TrashCan GetFreeTrashCan(Transform chef)
         {
-            RaycastHit2D hit = Physics2D.Raycast(m_ChefTransform.value.position, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(chef.position, Vector2.zero);
             TrashCan trashCan = null;
             if (hit.collider != null)
             {

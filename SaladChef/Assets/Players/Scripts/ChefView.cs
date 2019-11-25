@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Framework.FSM;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,27 +10,28 @@ namespace SaladChef
     {
         public ChefStats chefStats;
         public Transform itemsHolder;
-        public Chef chef;
+        public ChefActor m_Actor;
+        public Chef pChef { get { return m_Actor.chef; } }
 
         private void Start()
         {
             MovementController movementController = GetComponent<MovementController>();
-            movementController.info = chef.pMovementControlInfo;
+            movementController.info = pChef.pMovementControlInfo;
             movementController.playerViewSize = GetComponent<Renderer>().bounds.extents;
-            movementController.boundary = chef.pBoundary.value.GetComponent<BoxCollider2D>();
+            movementController.boundary = pChef.pBoundary.value.GetComponent<BoxCollider2D>();
             movementController.DoSetup();
-            name = chef.pName;
+            name = pChef.pName;
         }
 
         private void Update()
         {
-            chef.pTimeLeft -= Time.deltaTime;
-            chefStats.pTimeText = string.Format("{0:0}", chef.pTimeLeft);
-            chefStats.pScoreText = chef.pScore.ToString();
+            pChef.pTimeLeft -= Time.deltaTime;
+            chefStats.pTimeText = string.Format("{0:0}", pChef.pTimeLeft);
+            chefStats.pScoreText = pChef.pScore.ToString();
 
-            chef.ResetReadyState();
-            if (chef.currentState != null)
-                chef.currentState.DoUpdate(Time.deltaTime);
+            pChef.ResetReadyState();
+            if (pChef.currentState != null)
+                pChef.currentState.DoUpdate(m_Actor, Time.deltaTime);
         }
 
         public void Pause(bool pause)

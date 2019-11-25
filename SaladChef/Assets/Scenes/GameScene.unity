@@ -2903,6 +2903,7 @@ MonoBehaviour:
   m_Chefs:
   - {fileID: 851140469}
   - {fileID: 90017694}
+  m_ChoppingBoard: []
   m_ReduceScoreOnNotDeliveringTheSalad: 5
   m_UIGameOver: {fileID: 6839805713660921530}
 --- !u!4 &1575596626
@@ -4032,6 +4033,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chef1
       objectReference: {fileID: 0}
+    - target: {fileID: 536973755, guid: 6ddb016ec0ce45e4c98804ddb2b4ef50, type: 3}
+      propertyPath: chefStats
+      value: 
+      objectReference: {fileID: 1781063584}
     - target: {fileID: 7654219419241412681, guid: 6ddb016ec0ce45e4c98804ddb2b4ef50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4087,10 +4092,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 536973755, guid: 6ddb016ec0ce45e4c98804ddb2b4ef50, type: 3}
-      propertyPath: chefStats
-      value: 
-      objectReference: {fileID: 1781063584}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ddb016ec0ce45e4c98804ddb2b4ef50, type: 3}
 --- !u!1 &6839805712979843496
@@ -5472,6 +5473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chef_2
       objectReference: {fileID: 0}
+    - target: {fileID: 5208982717062070477, guid: 2be6cf0af2628c14cac31d8d4d1c7989,
+        type: 3}
+      propertyPath: chefStats
+      value: 
+      objectReference: {fileID: 2096441964}
     - target: {fileID: 8073582016336005307, guid: 2be6cf0af2628c14cac31d8d4d1c7989,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5527,10 +5533,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5208982717062070477, guid: 2be6cf0af2628c14cac31d8d4d1c7989,
-        type: 3}
-      propertyPath: chefStats
-      value: 
-      objectReference: {fileID: 2096441964}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be6cf0af2628c14cac31d8d4d1c7989, type: 3}

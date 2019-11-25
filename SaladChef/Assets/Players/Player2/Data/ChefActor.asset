@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6e85655f666f34f974e42953e53950, type: 3}
+  m_Name: ChefActor
+  m_EditorClassIdentifier: 
+  chef: {fileID: 11400000, guid: 8e703138c59f1c34e96dd60125e8247a, type: 2}
+  chefTransform: {fileID: 11400000, guid: 44aefb00ae05aa44982bcb566e610fbf, type: 2}
