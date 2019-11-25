@@ -51,6 +51,8 @@ MonoBehaviour:
   m_MinVegetablesSalad: 2
   m_MaxVegetablesInSalad: 3
   m_WaitTimePerVegetable: 30
+  m_ScoreForDelivery: 50
+  m_PowerupsData: {fileID: 11400000, guid: 7099b8c896b152746894cceedbfec311, type: 2}
 --- !u!1 &6502331117877351852
 GameObject:
   m_ObjectHideFlags: 0

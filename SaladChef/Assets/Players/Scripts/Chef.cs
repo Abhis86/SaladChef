@@ -99,7 +99,7 @@ namespace SaladChef
             currentState = m_StartState;
             pTimeLeft = m_DefaultTime;
             pScore = 0;
-            m_ItemsHolder.Clear();
+            m_ItemsHolder.value.ClearChildren();
             ResetReadyState();
         }
     }

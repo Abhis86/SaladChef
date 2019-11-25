@@ -13,6 +13,8 @@ namespace SaladChef
         public ChefActor m_Actor;
         public Chef pChef { get { return m_Actor.chef; } }
 
+        private IEnumerator mSpeedUpCoroutine;
+
         private void Start()
         {
             MovementController movementController = GetComponent<MovementController>();
@@ -42,7 +44,36 @@ namespace SaladChef
 
         public void Reset()
         {
+            if (mSpeedUpCoroutine != null)
+                StopCoroutine(mSpeedUpCoroutine);
+
+            GetComponent<MovementController>().info.speedMultiplier = 1;
             itemsHolder.ClearChildren();
+        }
+
+        private void AddScore(int score)
+        {
+            pChef.pScore += score;
+        }
+
+        private void AddTime(int time)
+        {
+            pChef.pTimeLeft += time;
+        }
+
+        private void SpeedUp(float speedUpTime)
+        {
+            Debug.Log("SpeedUp");
+            mSpeedUpCoroutine = IncreaseSpeedForTime(speedUpTime);
+            StartCoroutine(mSpeedUpCoroutine);
+        }
+
+        IEnumerator IncreaseSpeedForTime(float time)
+        {
+            MovementController controller = GetComponent<MovementController>();
+            controller.info.speedMultiplier = 2;
+            yield return new WaitForSeconds(time);
+            controller.info.speedMultiplier = 1;
         }
     }
 }

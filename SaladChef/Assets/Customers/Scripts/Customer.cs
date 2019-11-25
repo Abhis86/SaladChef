@@ -12,6 +12,7 @@ namespace SaladChef
         [SerializeField] private int m_MaxVegetablesInSalad = 3;
         [SerializeField] private float m_WaitTimePerVegetable = default;
         [SerializeField] private int m_ScoreForDelivery = 10;
+        [SerializeField, Range(10, 100)] float  m_DeliveryTimeInPercentageToReward = 70; 
 
         public Table pReservedTable { get; set; }
         public Chef pOrderedTakenByChef { get; set; }
@@ -58,8 +59,8 @@ namespace SaladChef
             bool isCorrectSaladCombination = mSalad.Equals(salad);
             if (isCorrectSaladCombination)
             {
-                if (mTimeElapsed / mWaitTime * 100 < 70)
-                    SpawnPowerup();
+                if (mTimeElapsed / mWaitTime * 100 < m_DeliveryTimeInPercentageToReward)
+                    SpawnPowerup(chef);
                 chef.pScore += m_ScoreForDelivery;
                 LeaveTable();
             }
@@ -72,9 +73,9 @@ namespace SaladChef
             return isCorrectSaladCombination;
         }
 
-        private void SpawnPowerup()
+        private void SpawnPowerup(Chef chef)
         {
-            // Spawn powerups
+            PowerupManager.pInstance.GenerateRandomPowerup(chef);
         }
 
         public void Update()

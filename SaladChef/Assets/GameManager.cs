@@ -74,6 +74,8 @@ namespace SaladChef
                 m_ChoppingBoard[i].Reset();
             m_CustomerSpawner.Reset();
             m_UIGameOver.gameObject.SetActive(false);
+            PowerupManager.pInstance.Reset();
+            mGameOver = false;
             Initialize();
         }
 

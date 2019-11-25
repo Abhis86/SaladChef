@@ -10,6 +10,7 @@ namespace SaladChef
         [SerializeField] private float m_Speed = default;
         [SerializeField] private string m_HorizontalMoveInputAxis = default;
         [SerializeField] private string m_VerticalMoveInputAxis = default;
+        public float speedMultiplier = 1;
 
         public float pSpeed { get => m_Speed; set => m_Speed = value; }
         public string pHorizontalMoveInputAxis { get => m_HorizontalMoveInputAxis; }
@@ -37,7 +38,7 @@ namespace SaladChef
 
         private void Update()
         {
-            mMoveVelocity = new Vector2(Input.GetAxisRaw(info.pHorizontalMoveInputAxis), Input.GetAxisRaw(info.pVerticalMoveInputAxis)).normalized * info.pSpeed;
+            mMoveVelocity = new Vector2(Input.GetAxisRaw(info.pHorizontalMoveInputAxis), Input.GetAxisRaw(info.pVerticalMoveInputAxis)).normalized * info.pSpeed * info.speedMultiplier;
             var pos = Clamp((Vector2)mTransform.position + mMoveVelocity * Time.deltaTime);
             mTransform.position = pos;
         }
