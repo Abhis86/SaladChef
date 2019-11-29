@@ -27,7 +27,8 @@ namespace SaladChef
 
         private void Update()
         {
-            pChef.pTimeLeft -= Time.deltaTime;
+            if (pChef.pTimeLeft > 0)
+                pChef.pTimeLeft -= Time.deltaTime;
             chefStats.pTimeText = string.Format("{0:0}", pChef.pTimeLeft);
             chefStats.pScoreText = pChef.pScore.ToString();
 
