@@ -70,12 +70,12 @@ public class TransformLayout : MonoBehaviour
 #if UNITY_EDITOR
     protected void OnValidate()
     {
-        if (!Application.isPlaying)
-        {
+        //if (!Application.isPlaying)
+        //{
             mChildCount = transform.childCount;
             SetChildrenSize();
             SetChildrenPosition();
-        }
+       // }
     }
 #endif
 }
